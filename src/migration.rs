@@ -88,6 +88,7 @@ impl Migration {
                     }
                 }
                 &mut DropTable(ref name) => sql.push_str(&T::drop_table(name, schema)),
+                &mut Custom(ref s) => sql.push_str(s),
                 &mut DropTableIfExists(ref name) => {
                     sql.push_str(&T::drop_table_if_exists(name, schema))
                 }
@@ -204,5 +205,10 @@ impl Migration {
     pub fn drop_table_if_exists<S: Into<String>>(&mut self, name: S) {
         self.changes
             .push(DatabaseChange::DropTableIfExists(name.into()));
+    }
+
+    /// Inject custom SQL code.
+    pub fn inject_custom<S: Into<String>>(&mut self, sql: S) {
+        self.changes.push(DatabaseChange::Custom(sql.into()));
     }
 }

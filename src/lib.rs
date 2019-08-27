@@ -149,6 +149,9 @@ pub enum DatabaseChange {
 
     /// Only drop a table if it exists
     DropTableIfExists(String),
+
+    /// Custom SQL code.
+    Custom(String),
 }
 
 /// An enum set that represents operations done with and on indices
