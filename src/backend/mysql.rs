@@ -50,7 +50,7 @@ impl SqlGenerator for MySql {
 
         #[cfg_attr(rustfmt, rustfmt_skip)] /* This shouldn't be formatted. It's too long */
         format!(
-            "{}{}{}{}",
+            "{}{}{}{}{}",
             match bt {
                 Text => format!("{}{} {}", MySql::prefix(ex), name, MySql::print_type(bt)),
                 Varchar(_) => format!("{}{} {}", MySql::prefix(ex), name, MySql::print_type(bt)),
