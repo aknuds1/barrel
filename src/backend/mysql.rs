@@ -83,7 +83,7 @@ impl SqlGenerator for MySql {
             match tt.unique {
                 true => " UNIQUE",
                 false => "",
-            }
+            },
         )
     }
 

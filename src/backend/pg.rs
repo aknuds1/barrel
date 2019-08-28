@@ -85,7 +85,7 @@ impl SqlGenerator for Pg {
             match tt.unique {
                 true => " UNIQUE",
                 false => "",
-            }
+            },
         )
     }
 
