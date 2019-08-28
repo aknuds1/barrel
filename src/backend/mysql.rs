@@ -79,6 +79,10 @@ impl SqlGenerator for MySql {
             match tt.nullable {
                 true => "",
                 false => " NOT NULL",
+            },
+            match tt.unique {
+                true => " UNIQUE",
+                false => "",
             }
         )
     }
